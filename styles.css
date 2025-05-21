@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Roboto+Mono&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-b-ox;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "EB Garamond", serif;
+  overflow: hidden;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+.top-content {
+  text-align: center;
+}
+
+.bottom-content {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.background {
+  background: url(https://ik.imagekit.io/6ilngyaqa/1747485839892-daughter_PTqDXN5CN0.jpg)
+    no-repeat center center/cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  filter: brightness(1.4);
+}
+.title,
+.subtitle,
+.start-button,
+.quote {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.overlay {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #000;
+  align-self: center;
+}
+
+.subtitle {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  color: #111;
+  margin-bottom: 30px;
+  align-self: center;
+}
+
+.start-button {
+  margin-bottom: 40px;
+  font-size: 1rem;
+  padding: 12px 28px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-bottom: 10px;
+  transition: background 0.3x ease;
+}
+
+.start-button:hover {
+  background: #fff;
+  color: #000;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.quote {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #111;
+}
