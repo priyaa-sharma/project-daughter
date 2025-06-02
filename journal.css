@@ -1,122 +1,175 @@
-/* Whole page background - soft light to dark brown gradient */
+/* Base styles */
+:root {
+  --primary-color: #3d2b1f;
+  --secondary-color: #8b5e3c;
+  --background-start: #e9d5c0;
+  --background-end: #a47551;
+  --button-color: #8d674e;
+  --button-hover: #6f4b36;
+  --input-background: #fff4eb;
+  --prompt-background: #f3e0ce;
+  --transition-speed: 0.3s;
+}
+
 body {
   margin: 0;
   font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom, #e9d5c0, #a47551);
-  color: #3d2b1f;
-  height: 100vh;
+  background: linear-gradient(to bottom, var(--background-start), var(--background-end));
+  color: var(--primary-color);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
+  transition: background-color var(--transition-speed) ease;
 }
 
-/* Title and Date styles */
+/* Header styles */
 header {
   text-align: center;
   margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
 }
 
 h1 {
   font-size: 2.5rem;
-  color: #5e3b2d;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
 }
 
-p.date {
+.date {
   font-size: 1rem;
-  color: #8b5e3c;
+  color: var(--secondary-color);
+  margin-top: 0;
 }
 
 /* Mood selection */
 .mood-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 800px;
 }
 
 .mood-button {
-  background-color: #c8a98b;
+  background-color: var(--button-color);
+  color: white;
   border: none;
-  color: #3e2f20;
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 12px 20px;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all var(--transition-speed) ease;
   font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .mood-button:hover {
-  background-color: #a77e5d;
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 /* Prompt section */
 .prompt {
-  background-color: #f3e0ce;
-  border: 1px solid #d1b195;
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 20px;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0 4px 8px rgba(94, 60, 33, 0.2);
+  background-color: var(--prompt-background);
+  border: none;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(94, 60, 33, 0.1);
+  transition: all var(--transition-speed) ease;
 }
 
 /* Journal writing area */
 textarea {
-  width: 80%;
-  max-width: 600px;
-  height: 200px;
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid #b58d6a;
-  font-size: 1rem;
+  width: 100%;
+  max-width: 800px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(181, 141, 106, 0.3);
+  font-size: 1.1rem;
+  line-height: 1.6;
   resize: vertical;
-  background-color: #fff4eb;
-  color: #3d2b1f;
-  box-shadow: inset 0 2px 5px rgba(85, 45, 20, 0.1);
+  background-color: var(--input-background);
+  color: var(--primary-color);
+  box-shadow: inset 0 2px 5px rgba(85, 45, 20, 0.05);
+  transition: all var(--transition-speed) ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(139, 94, 60, 0.1);
 }
 
 /* Save button */
-button.save-btn {
+.save-btn {
   margin-top: 20px;
-  background-color: #8d674e;
-  color: #fff9f5;
+  background-color: var(--button-color);
+  color: white;
   border: none;
-  padding: 12px 24px;
-  font-size: 1rem;
-  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-button.save-btn:hover {
-  background-color: #6f4b36;
+.save-btn:hover {
+  background-color: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 .fade-in {
-  animation: fadeIn 1s ease-out forwards;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 .fade-in-delayed {
-  animation: fadeIn 1.2s ease-out forwards;
-  animation-delay: 0.5s;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 0.2s;
   opacity: 0;
 }
+
+/* Menu and Sidebar */
 .menu-toggle {
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   font-size: 28px;
-  color: #3e2f23;
+  color: var(--primary-color);
   cursor: pointer;
   z-index: 1001;
+  transition: transform var(--transition-speed) ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .sidebar {
@@ -128,21 +181,49 @@ button.save-btn:hover {
   left: 0;
   background: linear-gradient(to bottom, #e6d3b3, #c0a88a);
   overflow-x: hidden;
-  transition: 0.4s;
+  transition: width var(--transition-speed) ease;
   padding-top: 60px;
   box-shadow: 4px 0 10px rgba(0,0,0,0.2);
 }
 
 .sidebar a {
-  padding: 12px 24px;
+  padding: 15px 25px;
   text-decoration: none;
-  font-size: 20px;
-  color: #3e2f23;
+  font-size: 1.2rem;
+  color: var(--primary-color);
   display: block;
-  transition: 0.3s;
+  transition: all var(--transition-speed) ease;
+  white-space: nowrap;
 }
 
 .sidebar a:hover {
-  background-color: #d4b18c;
-  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding-left: 35px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .mood-container {
+    gap: 8px;
+  }
+  
+  .mood-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  textarea {
+    height: 250px;
+    padding: 15px;
+    font-size: 1rem;
+  }
+  
+  .save-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
 }
